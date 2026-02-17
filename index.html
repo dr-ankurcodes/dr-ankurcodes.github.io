@@ -2443,7 +2443,9 @@
 
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-                const repos = await response.json();
+                let repos = await response.json();
+
+                repos = repos.filter(repo => repo.name !== 'dr-ankurcodes.github.io' && repo.name !== 'dr-ankurcodes');
 
                 loadingState.style.display = 'none';
 
@@ -2670,3 +2672,4 @@
     </script>
 </body>
 </html>
+
