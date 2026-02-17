@@ -1,0 +1,2672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Ankur Sharma | Full Stack Developer</title>
+    <meta name="description" content="Portfolio of Dr. Ankur Sharma - Full Stack Developer & Medical Professional specializing in modern web applications and scalable software solutions.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <style>
+        /* DEVELOPER PORTFOLIO THEME */
+        :root {
+            --bg-void: #050807;
+            --bg-panel: #0a1210;
+            --neon-cyan: #00f3ff;
+            --neon-green: #0aff60;
+            --neon-red: #ff2a2a;
+            --text-main: #e0e6e4;
+            --text-muted: #5c706a;
+            --font-display: 'Space Mono', 'Courier New', monospace;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-med-head: 'Rajdhani', sans-serif;
+            --font-med-mono: 'Share Tech Mono', monospace;
+            --glow-cyan: 0 0 10px rgba(0, 243, 255, 0.3), 0 0 20px rgba(0, 243, 255, 0.1);
+            --glow-green: 0 0 10px rgba(10, 255, 96, 0.3), 0 0 20px rgba(10, 255, 96, 0.1);
+            --grid-line: rgba(0, 243, 255, 0.05);
+            
+            /* Parallax Variables */
+            --mouse-x: 0px;
+            --mouse-y: 0px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            cursor: none; /* Custom Cursor */
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-void);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Interactive Parallax Background */
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center calc(50% + var(--mouse-y)) calc(50% + var(--mouse-x));
+            background-attachment: fixed; /* Keeps parallax consistent */
+            transition: background-position 0.1s linear; /* Smooth parallax lag */
+        }
+
+        body.menu-open { overflow: hidden; }
+
+        /* --- 1. MANUAL SCROLLBAR IMPLEMENTATION (Start) --- */
+        /* Webkit Browsers (Chrome, Safari, Edge, Opera) */
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-panel); /* Dark track background */
+            border-left: 1px solid rgba(0, 243, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4a5a55; /* Muted Grey-Green color (Not Cyan) */
+            border-radius: 0; /* Square edges for 'manual' feel */
+            border: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6a7a75; /* Lighter color on hover */
+        }
+
+        /* Hide arrows and default buttons completely */
+        ::-webkit-scrollbar-button {
+            display: none;
+            height: 0;
+            width: 0;
+        }
+
+        /* Handle the corner (bottom-right) */
+        ::-webkit-scrollbar-corner {
+            background: var(--bg-panel);
+        }
+
+        /* Firefox Scrollbar Support */
+        * {
+            scrollbar-width: thin; /* 'auto' or 'thin' */
+            scrollbar-color: #4a5a55 var(--bg-panel); /* thumb color track color */
+        }
+
+        /* Mobile Optimization: slightly thinner on small screens */
+        @media (max-width: 900px) {
+            ::-webkit-scrollbar {
+                width: 8px;
+                height: 8px;
+            }
+        }
+        /* --- 1. MANUAL SCROLLBAR IMPLEMENTATION (End) --- */
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: var(--text-main);
+            text-shadow: var(--glow-cyan);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Glitch Effect on Hover */
+        h1:hover {
+            animation: glitch-anim 0.3s infinite;
+        }
+
+        @keyframes glitch-anim {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            border-left: 4px solid var(--neon-green);
+            padding-left: 1rem;
+            margin-top: 3rem;
+        }
+
+        h3 {
+            color: var(--neon-cyan);
+            font-size: 1.25rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: #b0c4be;
+            font-weight: 300;
+        }
+
+        a {
+            color: var(--neon-green);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--neon-cyan);
+            text-shadow: var(--glow-cyan);
+        }
+
+        /* CUSTOM CURSOR */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            transition: transform 0.1s; /* Slight delay for fluid feel */
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s, transform 0.15s ease-out; /* Smoother follow */
+        }
+
+        body.is-hovering-code .cursor-outline {
+            width: 50px;
+            height: 50px;
+            border: 1px dashed var(--neon-cyan);
+            background-color: transparent;
+            border-radius: 0;
+        }
+
+        body.is-hovering-link .cursor-outline {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            mix-blend-mode: difference;
+        }
+
+        /* SCROLL REVEAL ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left { transform: translateX(-50px); }
+        .reveal-right { transform: translateX(50px); }
+        .reveal-scale { transform: scale(0.8); }
+
+        .reveal.active.reveal-left,
+        .reveal.active.reveal-right,
+        .reveal.active.reveal-scale {
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* NAVIGATION */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1100;
+            background: rgba(5, 8, 7, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+            transition: background 0.3s;
+        }
+
+        .main-nav.scrolled {
+            background: rgba(5, 8, 7, 0.98);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .logo:hover { transform: skewX(-10deg); }
+        .logo-med { color: var(--neon-green); }
+        .logo-code { color: var(--neon-cyan); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--neon-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--neon-cyan); }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: 1px solid var(--neon-cyan);
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 1002;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(0, 243, 255, 0.1);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--neon-cyan);
+            transition: all 0.3s ease;
+            position: absolute;
+            border-radius: 1px;
+        }
+
+        .mobile-menu-toggle span:nth-child(1) { transform: translateY(-7px); }
+        .mobile-menu-toggle span:nth-child(2) { transform: translateY(0); opacity: 1; }
+        .mobile-menu-toggle span:nth-child(3) { transform: translateY(7px); }
+
+        .mobile-menu-toggle.active span:nth-child(1) { transform: translateY(0) rotate(45deg); }
+        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-toggle.active span:nth-child(3) { transform: translateY(0) rotate(-45deg); }
+
+        /* Mobile Nav Overlay */
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 8, 7, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1050;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .mobile-nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav-content {
+            display: flex;
+            flex-direction: column;
+            padding: 100px 2rem 2rem;
+            height: 100%;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-nav-links li {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .mobile-nav-overlay.active .mobile-nav-links li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-nav-overlay.active .mobile-nav-links li:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-nav-overlay.active .mobile-nav-links li:nth-child(2) { transition-delay: 0.15s; }
+        .mobile-nav-overlay.active .mobile-nav-links li:nth-child(3) { transition-delay: 0.2s; }
+        .mobile-nav-overlay.active .mobile-nav-comments li:nth-child(4) { transition-delay: 0.25s; }
+
+        .mobile-nav-links a {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 0.5rem 1rem;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a:focus {
+            color: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+            text-shadow: var(--glow-cyan);
+        }
+
+        .mobile-nav-social {
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            padding-bottom: 2rem;
+        }
+
+        .mobile-nav-social a {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .mobile-nav-social a:hover { color: var(--neon-green); }
+
+        /* HERO SECTION */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 100px 2rem 60px;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, var(--bg-void) 90%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        .supertitle {
+            font-family: var(--font-med-mono);
+            color: var(--neon-cyan);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 901px) {
+            .top-row {
+                display: flex;
+                gap: 1.25rem;
+                justify-content: center;
+                margin-bottom: 1.5rem;
+            }
+
+            .top-row .btn {
+                min-width: 220px;
+                text-align: center;
+            }
+
+            .community-cta {
+                width: 100%;
+                max-width: 360px;
+                margin: 0 auto;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .top-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--neon-cyan);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--bg-void);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .btn:hover::before { transform: translateX(100%); }
+
+        .btn-secondary {
+            border-color: var(--neon-green);
+            color: var(--neon-green);
+        }
+        .btn-secondary::before { background: var(--neon-green); }
+        .btn-secondary:hover { box-shadow: var(--glow-green); }
+
+        /* ABOUT SECTION */
+        .about-section {
+            padding: 6rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--bg-void);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            width: 100%;
+        }
+
+        #duality-wrapper {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background-color: var(--bg-panel);
+            color: var(--text-main);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            border: 1px solid #1f3a4d;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mode-developer {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-primary: #58a6ff;
+            --text-secondary: #8b949e;
+            --accent-color: #2ea043;
+            --border-radius: 4px;
+            --font-main: 'Space Mono', monospace;
+            --shadow: 0 0 20px rgba(46, 160, 67, 0.1);
+            --border: 1px solid #30363d;
+        }
+
+        .mode-doctor {
+            --bg-color: #f0f7f4;
+            --card-bg: #ffffff;
+            --text-primary: #1a5f4a;
+            --text-secondary: #5a7a6f;
+            --accent-color: #00b894;
+            --border-radius: 16px;
+            --font-main: 'Inter', sans-serif;
+            --shadow: 0 10px 30px -10px rgba(0, 184, 148, 0.15);
+            --border: 1px solid #d4e6df;
+        }
+
+        #duality-wrapper.mode-developer {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: var(--border);
+            font-family: var(--font-main);
+        }
+
+        #duality-wrapper.mode-doctor {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: var(--border);
+        }
+
+        .mode-developer::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            opacity: 1;
+        }
+
+        .mode-doctor::before {
+            display: none;
+        }
+
+        .toggle-track {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .toggle-btn {
+            background: var(--card-bg);
+            border: 2px solid var(--text-secondary);
+            border-radius: 50px;
+            width: 80px;
+            height: 40px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s;
+            outline: none;
+        }
+
+        .mode-developer .toggle-btn {
+            border-radius: 4px;
+            border-color: var(--accent-color);
+            background: #000;
+        }
+
+        .mode-doctor .toggle-btn {
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            background: #fff;
+        }
+
+        .toggle-knob {
+            width: 32px;
+            height: 32px;
+            background: var(--text-secondary);
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 4px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-color);
+            font-size: 12px;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .mode-developer .toggle-knob {
+            left: 4px;
+            border-radius: 2px;
+            background: var(--accent-color);
+            color: #000;
+        }
+
+        .mode-doctor .toggle-knob {
+            left: 44px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        .icon-developer, .icon-doctor {
+            position: absolute;
+            font-size: 12px;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+
+        .mode-developer .icon-developer { opacity: 1; }
+        .mode-developer .icon-doctor { opacity: 0; }
+        .mode-doctor .icon-developer { opacity: 0; }
+        .mode-doctor .icon-doctor { opacity: 1; }
+
+        .toggle-labels {
+            display: flex;
+            justify-content: space-between;
+            width: 180px;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-family: var(--font-display);
+        }
+
+        .toggle-labels span.active { color: var(--accent-color); }
+
+        .content-display {
+            text-align: center;
+            position: relative;
+            z-index: 5;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .visual-header {
+            height: 50px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+        }
+
+        .prompt-text {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+        .prompt-text .user { color: var(--accent-color); }
+        .prompt-text .host { color: var(--text-primary); }
+
+        .content-display h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            transition: color 0.3s;
+        }
+
+        .meta-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--text-secondary);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .mode-developer .tag {
+            border-radius: 4px;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            background: rgba(46, 160, 67, 0.1);
+        }
+
+        .content-display p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            min-height: 3.2em;
+        }
+
+        .stats-grid {
+            display: flex;
+            gap: 3rem;
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px dashed var(--text-secondary);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .stat-value { font-size: 1.5rem; font-weight: bold; color: var(--text-primary); }
+        .stat-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); }
+
+        /* PROJECTS SECTION */
+        .projects-section {
+            padding: 6rem 2rem;
+            background-color: #050a10;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-section .section-header h2 {
+            border: none;
+            padding: 0;
+            font-family: var(--font-med-head);
+            font-weight: 700;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        .system-status {
+            font-family: var(--font-med-mono);
+            color: var(--neon-green);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 0 2rem; 
+        }
+
+        .project-card {
+            position: relative;
+            min-height: 380px;
+            height: auto;
+            perspective: 1000px;
+        }
+
+        .project-preview {
+            position: relative;
+            width: 100%;
+            min-height: 200px;
+            background: rgba(11, 18, 26, 0.8);
+            border: 1px solid #1f3a4d;
+            border-left: 4px solid #1f3a4d;
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            padding: 1.5rem;
+        }
+
+        .project-tag {
+            position: absolute;
+            top: -1px; left: -1px;
+            background: #1f3a4d;
+            color: var(--neon-cyan);
+            font-family: var(--font-med-mono);
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-bottom-right-radius: 4px;
+            border-top: 1px solid var(--neon-cyan);
+            border-right: 1px solid var(--neon-cyan);
+        }
+
+        .project-icon {
+            width: 60px; height: 60px;
+            border: 2px solid var(--neon-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-icon {
+            transform: rotate(360deg);
+        }
+
+        .project-details {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(5, 10, 16, 0.98);
+            border: 1px solid var(--neon-cyan);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 3;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.15);
+            overflow: visible;
+        }
+
+        .project-card:hover .project-preview {
+            transform: translateY(-10px);
+            opacity: 0;
+            border-left-color: var(--neon-cyan);
+            pointer-events: none;
+        }
+
+        .project-card:hover .project-details {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            z-index: 3;
+            pointer-events: auto;
+        }
+
+        /* Keep details visible when hovering over them */
+        .project-details:hover,
+        .project-details:hover ~ .project-preview,
+        .project-card:hover .project-details:hover {
+            opacity: 1 !important;
+            transform: translateY(0) scale(1) !important;
+            z-index: 3 !important;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed #1f3a4d;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-med-mono);
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+        .status-badge.active { background: rgba(10, 255, 96, 0.2); color: var(--neon-green); border: 1px solid var(--neon-green); }
+        .status-badge.development { background: rgba(0, 243, 255, 0.2); color: var(--neon-cyan); border: 1px solid var(--neon-cyan); }
+        .status-badge.archived { background: rgba(255, 42, 42, 0.2); color: var(--neon-red); border: 1px solid var(--neon-red); }
+
+        .chart-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            overflow: visible;
+        }
+
+        .data-row { display: flex; flex-direction: column; margin-bottom: 0.5rem; }
+        .label { font-family: var(--font-med-mono); color: var(--neon-cyan); font-size: 0.7rem; opacity: 0.8; margin-bottom: 2px; }
+        .value { font-family: var(--font-med-head); font-size: 1rem; color: #fff; line-height: 1.2; }
+
+        .tech-stack { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tech-stack span {
+            font-family: var(--font-med-mono);
+            font-size: 0.75rem;
+            background: #1f3a4d;
+            padding: 4px 8px;
+            color: var(--neon-cyan);
+        }
+
+        .activity-graph { display: flex; align-items: flex-end; gap: 4px; height: 30px; margin-top: 5px; }
+        .activity-graph .bar { flex: 1; background: var(--neon-cyan); opacity: 0.5; transition: height 0.5s ease; }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            margin-top: auto;
+            border-top: 1px dashed #1f3a4d;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .view-btn {
+            font-family: var(--font-med-mono);
+            text-decoration: none;
+            color: #050a10;
+            background: var(--neon-cyan);
+            padding: 10px 16px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.2s;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+        .view-btn:hover { background: #fff; box-shadow: 0 0 10px #fff; }
+
+        .live-demo-btn {
+            color: var(--neon-green);
+            font-size: 0.8rem;
+            font-family: var(--font-med-mono);
+            padding: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .live-demo-btn:hover { text-decoration: underline; }
+
+        /* Loading State Styles */
+        .loading-state {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            min-height: 300px;
+        }
+
+        .loader-ring {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(0, 243, 255, 0.1);
+            border-top-color: var(--neon-cyan);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-text {
+            margin-top: 1.5rem;
+            font-family: var(--font-med-mono);
+            color: var(--neon-cyan);
+            font-size: 0.9rem;
+            animation: pulse-text 1.5s ease-in-out infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @keyframes pulse-text {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Error & Empty State Styles */
+        .error-state, .empty-state {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .error-icon, .empty-icon {
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--neon-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-red);
+            margin-bottom: 1.5rem;
+        }
+
+        .empty-icon {
+            border-color: var(--text-muted);
+            color: var(--text-muted);
+        }
+
+        .error-icon svg, .empty-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .error-state h3, .empty-state h3 {
+            color: var(--neon-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state h3 { color: var(--text-muted); }
+
+        .error-state p, .empty-state p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Repo specific styles */
+        .repo-language-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .repo-stats {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .repo-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .repo-stat svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        .repo-date {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+
+        .badge-fork {
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            background: rgba(0, 243, 255, 0.15);
+            color: var(--neon-cyan);
+            border: 1px solid var(--neon-cyan);
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            padding: 6rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .info-list {
+            margin-top: 2rem;
+            border: 1px solid #1f3a4d;
+            padding: 2rem;
+            background: rgba(11, 18, 26, 0.5);
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-family: var(--font-med-mono);
+            border-bottom: 1px dashed #1f3a4d;
+            padding-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .info-item:last-child { border-bottom: none; margin-bottom: 0; }
+        .info-item strong { color: var(--neon-cyan); }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 0.5rem; position: relative; }
+        .form-group label { font-family: var(--font-display); font-size: 0.8rem; color: var(--neon-green); }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid #1f3a4d;
+            padding: 1rem;
+            color: #fff;
+            font-family: var(--font-body);
+            transition: 0.3s;
+            border-radius: 4px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+            font-family: var(--font-body);
+        }
+
+        /* Form Error Styles */
+        .form-error {
+            color: var(--neon-red);
+            font-size: 0.75rem;
+            font-family: var(--font-body);
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .form-group.input-error input,
+        .form-group.input-error textarea,
+        .custom-select-wrapper.input-error .custom-select-trigger {
+            border-color: var(--neon-red);
+            box-shadow: 0 0 10px rgba(255, 42, 42, 0.2);
+        }
+
+        /* Custom Select Styles */
+        .custom-select-wrapper {
+            position: relative;
+            user-select: none;
+            width: 100%;
+        }
+
+        .custom-select-trigger {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid #1f3a4d;
+            padding: 1rem;
+            color: #fff;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: var(--font-body);
+        }
+
+        .custom-select-trigger:hover {
+            border-color: var(--neon-cyan);
+        }
+
+        .custom-select-trigger .trigger-text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .custom-arrow {
+            border: solid var(--text-muted);
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 3px;
+            transform: rotate(45deg);
+            transition: transform 0.3s;
+            margin-left: 10px;
+        }
+
+        .custom-select-wrapper.open .custom-arrow {
+            transform: rotate(-135deg);
+        }
+
+        .custom-options {
+            position: absolute;
+            top: 100%; 
+            left: 0; 
+            right: 0;
+            background: var(--bg-panel); /* Theme based background */
+            border: 1px solid var(--neon-cyan);
+            border-top: 0;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            max-height: 250px;
+            overflow-y: auto; /* Manual scrollbar applies here */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .custom-select-wrapper.open .custom-options {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .custom-option {
+            padding: 1rem;
+            color: var(--text-main);
+            background: transparent; /* Theme based background */
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .custom-option:last-child { border-bottom: none; }
+
+        .custom-option:hover {
+            background: rgba(0, 243, 255, 0.1); /* Theme hover */
+            color: var(--neon-cyan);
+        }
+
+        .custom-option.selected {
+            background: rgba(0, 243, 255, 0.15);
+            color: var(--neon-cyan);
+            font-weight: 600;
+        }
+        
+        /* Placeholder style for trigger */
+        .custom-select-trigger.placeholder .trigger-text {
+            color: var(--text-muted);
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(10, 255, 96, 0.1);
+            border: 1px solid var(--neon-green);
+            border-radius: 8px;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .form-success h3 {
+            color: var(--neon-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-success p {
+            color: var(--text-main);
+            margin-bottom: 0;
+        }
+
+        /* FOOTER */
+        .main-footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #1f3a4d;
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .social-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 1024px) {
+            .hero-content { padding: 0 2rem; }
+            .projects-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.5rem; padding: 0 1rem; }
+            .contact-wrapper { gap: 3rem; }
+        }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: flex; }
+            .mobile-nav-overlay { display: block; }
+
+            .hero-section { min-height: 100vh; height: auto; padding: 100px 1.5rem 60px; }
+            .hero-content { padding: 0; }
+
+            h1 { font-size: clamp(1.8rem, 6vw, 3rem); line-height: 1.1; }
+            .supertitle { font-size: 0.85rem; letter-spacing: 1px; }
+            .hero-sub { font-size: 1rem; margin-bottom: 1.5rem; }
+
+            .cta-group { flex-direction: column; align-items: center; gap: 0.75rem; }
+            .btn { width: 100%; max-width: 280px; padding: 0.875rem 1.5rem; font-size: 0.85rem; text-align: center; }
+
+            .about-section { padding: 4rem 1rem; }
+            #duality-wrapper { padding: 2rem 1.25rem; margin: 0 0.5rem; }
+            .content-display { min-height: 280px; }
+            .content-display h1 { font-size: 1.5rem; }
+            .stats-grid { gap: 2rem; padding-top: 1.5rem; }
+
+            .projects-section { padding: 4rem 1rem; }
+            .projects-section .section-header h2 { font-size: 1.5rem; }
+            .projects-container { padding: 0 1rem; }
+            .projects-grid { grid-template-columns: 1fr; gap: 1.5rem; padding: 0; }
+            .project-card { min-height: auto; height: auto; }
+
+            .contact-section { padding: 4rem 1rem; }
+            .contact-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
+            .contact-text h2 { margin-top: 0; font-size: 1.5rem; padding-left: 0.75rem; }
+            .info-list { padding: 1.5rem; }
+            .info-item { flex-direction: column; gap: 0.25rem; padding-bottom: 0.75rem; margin-bottom: 0.75rem; }
+
+            .main-footer { padding: 1.5rem 1rem; }
+            .footer-content p { font-size: 0.75rem; }
+            .social-links { flex-wrap: wrap; gap: 0.75rem; }
+        }
+
+        @media (max-width: 600px) {
+            body { background-size: 30px 30px; }
+            .main-nav { padding: 1rem; }
+            .logo { font-size: 1.25rem; }
+            .mobile-menu-toggle { width: 40px; height: 40px; }
+            .mobile-menu-toggle span { width: 18px; }
+            .mobile-nav-links a { font-size: 1.25rem; }
+
+            .hero-section { padding: 80px 1rem 50px; }
+            h1 { font-size: clamp(1.5rem, 7vw, 2.5rem); margin-bottom: 0.75rem; }
+            .supertitle { font-size: 0.75rem; margin-bottom: 0.75rem; }
+            .hero-sub { font-size: 0.9rem; line-height: 1.5; }
+            .btn { padding: 0.75rem 1.25rem; font-size: 0.8rem; max-width: 100%; }
+
+            h2 { font-size: clamp(1.25rem, 4vw, 1.75rem); border-left-width: 3px; padding-left: 0.75rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+            .section-header { margin-bottom: 2.5rem; }
+            .section-header p { font-size: 0.9rem; margin-bottom: 0; }
+
+            .about-section { padding: 3rem 0.75rem; }
+            #duality-wrapper { padding: 1.5rem 1rem; border-radius: 12px; margin: 0; }
+            .toggle-btn { width: 70px; height: 35px; }
+            .toggle-knob { width: 28px; height: 28px; font-size: 12px; }
+            .mode-developer .toggle-knob { left: 3px; }
+            .mode-doctor .toggle-knob { left: 39px; }
+            .toggle-labels { font-size: 0.65rem; width: 140px; }
+            .visual-header { height: 40px; }
+            .prompt-text { font-size: 1rem; }
+            .content-display h1 { font-size: 1.25rem; }
+            .content-display p { font-size: 0.875rem; line-height: 1.5; min-height: auto; }
+            .stats-grid { gap: 1.5rem; }
+
+            .projects-section { padding: 3rem 0.75rem; }
+            .projects-section .section-header { margin-bottom: 2.5rem; }
+            .projects-section .section-header h2 { font-size: 1.25rem; letter-spacing: 1px; }
+            .system-status { font-size: 0.75rem; }
+            .projects-container { padding: 0 0.5rem; }
+            
+            /* SMOOTH MOBILE PROJECT CARDS */
+            .projects-grid { 
+                padding: 0; 
+                gap: 2rem; 
+                max-width: 100%; 
+            }
+            
+            .project-card { 
+                min-height: 240px; 
+                height: auto;
+                perspective: none;
+                transform: none;
+                display: flex;
+                flex-direction: column;
+                border: 1px solid rgba(0, 243, 255, 0.15);
+            }
+
+            /* Smooth Accordion Animation Logic */
+            .project-details {
+                display: grid;
+                grid-template-rows: 0fr;
+                transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                position: relative;
+                top: auto;
+                left: auto;
+                width: 100%;
+                height: auto;
+                transform: none;
+                opacity: 1;
+                z-index: 1;
+                pointer-events: auto;
+                
+                /* FIX: Remove border/shadow to prevent "empty box" artifact */
+                border: none;
+                box-shadow: none;
+            }
+
+            .details-inner {
+                overflow: hidden;
+            }
+            
+            .project-card.is-open .project-details {
+                grid-template-rows: 1fr;
+            }
+
+            /* Ensure preview is visible and details hidden when closed */
+            .project-card:not(.is-open) .project-preview {
+                display: flex !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                pointer-events: auto !important;
+                min-height: 240px;
+                
+                /* FIX: Remove border/shadow since parent .project-card now has the border */
+                border: none !important;
+                box-shadow: none !important;
+                background: transparent;
+            }
+
+            .project-preview { padding: 1.5rem 1rem; }
+            .project-icon { width: 45px; height: 45px; }
+            .project-preview h3 { font-size: 1rem; }
+            .project-preview p { font-size: 0.8rem; margin-bottom: 0; }
+
+            .project-card.is-open .project-preview {
+                display: none !important;
+            }
+
+            .project-header { flex-wrap: wrap; gap: 0.5rem; font-size: 0.7rem; }
+            .status-badge { font-size: 0.65rem; }
+            .data-row { margin-bottom: 0.5rem; }
+            .label { font-size: 0.6rem; }
+            .value { font-size: 0.85rem; }
+            .tech-stack { gap: 0.4rem; }
+            .tech-stack span { font-size: 0.65rem; padding: 2px 5px; }
+            .activity-graph { height: 25px; }
+            .view-btn { padding: 8px 14px; font-size: 0.75rem; }
+            .project-footer { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+
+            /* --- 2. MOBILE CONTACT GAP FIX (Start) --- */
+            .contact-section { 
+                padding: 3rem 0.75rem 5rem; /* Increased bottom padding to 5rem from 3rem */
+            }
+            /* --- 2. MOBILE CONTACT GAP FIX (End) --- */
+
+            .contact-text h2 { font-size: 1.25rem; }
+            .contact-text p { font-size: 0.9rem; }
+            .info-list { padding: 1.25rem; margin-top: 1.5rem; }
+            .info-item strong { font-size: 0.85rem; }
+            .info-item span, .info-item a { font-size: 0.8rem; }
+            .form-group label { font-size: 0.75rem; }
+            .form-group input, .form-group textarea { padding: 0.75rem; font-size: 0.95rem; }
+            .form-group textarea { min-height: 120px; }
+
+            /* Mobile Custom Select */
+            .custom-select-trigger { padding: 0.75rem; font-size: 0.95rem; min-height: 48px; } /* Touch target */
+            .custom-option { padding: 0.875rem 1rem; min-height: 44px; display: flex; align-items: center; font-size: 0.95rem; } /* Touch target */
+
+            .main-footer { padding: 1.25rem 0.75rem; }
+            .footer-content p { font-size: 0.7rem; margin-bottom: 0.5rem; }
+            .footer-note { font-size: 0.65rem !important; }
+            .social-links { margin-top: 0.75rem !important; gap: 0.5rem; }
+            .social-links a { font-size: 0.8rem; padding: 0.25rem 0.5rem; }
+
+            .reveal { transform: translateY(30px); }
+            .reveal-left, .reveal-right { transform: translateY(30px); }
+            .reveal-scale { transform: scale(0.95); }
+        }
+
+        @media (max-width: 380px) {
+            .main-nav { padding: 0.75rem; }
+            .logo { font-size: 1.1rem; }
+            h1 { font-size: 1.35rem; }
+            .hero-sub { font-size: 0.85rem; }
+            .btn { padding: 0.65rem 1rem; font-size: 0.75rem; }
+            #duality-wrapper { padding: 1.25rem 0.875rem; }
+            .content-display h1 { font-size: 1.1rem; }
+            .meta-tags { gap: 6px; }
+            .tag { font-size: 0.7rem; padding: 2px 8px; }
+            .stats-grid { gap: 1rem; }
+            .stat-value { font-size: 1.1rem; }
+            .projects-section .section-header h2 { font-size: 1.1rem; }
+            .project-card { min-height: 240px; }
+        }
+
+        /* Landscape orientation fixes */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero-section { min-height: auto; padding: 80px 1rem 40px; }
+            .hero-content { max-width: 90%; }
+            h1 { font-size: 1.5rem; }
+            .hero-sub { font-size: 0.9rem; margin-bottom: 1rem; }
+            .cta-group { flex-direction: row; gap: 0.5rem; }
+            .btn { max-width: 180px; padding: 0.6rem 1rem; }
+            .mobile-nav-content { padding: 70px 2rem 1.5rem; } 
+            .mobile-nav-links { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .mobile-nav-links a { font-size: 1rem; padding: 0.5rem 0.75rem; }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .btn { min-height: 48px; }
+            .form-group input, .form-group textarea { min-height: 48px; }
+            .view-btn { min-height: 44px; display: flex; align-items: center; justify-content: center; }
+            .mobile-nav-links a { padding: 0.75rem 1rem; min-height: 48px; display: flex; align-items: center; }
+            
+            .project-card { 
+                position: relative; 
+                min-height: 240px; 
+            }
+            
+            .project-preview { 
+                position: relative; 
+                opacity: 1; 
+                transform: none;
+                display: flex; 
+                min-height: 240px;
+                
+                /* FIX: Ensure borders are removed here too for touch devices */
+                border: none !important;
+                box-shadow: none !important;
+                background: transparent;
+            }
+            
+            /* Apply grid animation for smoothness */
+            .project-details {
+                display: grid;
+                grid-template-rows: 0fr;
+                transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                position: relative;
+                
+                /* FIX: Remove border/shadow */
+                border: none;
+                box-shadow: none;
+            }
+
+            .details-inner {
+                overflow: hidden;
+            }
+
+            .project-card.is-open .project-details {
+                grid-template-rows: 1fr;
+            }
+
+            .project-card.is-open .project-preview {
+                display: none;
+            }
+
+            .btn::before { display: none; }
+            .btn:hover { color: var(--neon-cyan); box-shadow: none; }
+            .btn:active { background: var(--neon-cyan); color: var(--bg-void); }
+        }
+
+        /* Reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { transition: opacity 0.3s ease; transform: none; }
+            .reveal.active { transform: none; }
+            .reveal.active.reveal-left, .reveal.active.reveal-right, .reveal.active.reveal-scale { transform: none; }
+            .mobile-nav-overlay.active .mobile-nav-links li { transition-delay: 0s; }
+            .toggle-knob { transition: left 0.2s ease; }
+            .project-details { transition: none; } /* Disable smooth animation if prefers-reduced-motion */
+        }
+
+        /* Mobile cursor fallback */
+        @media (hover: none) and (pointer: coarse) {
+            .cursor-dot, .cursor-outline { display: none; }
+            *, *::before, *::after { cursor: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav" id="main-nav">
+        <div class="logo">
+            <span class="logo-code">&lt;</span><span class="logo-med">Dr. Ankur</span><span class="logo-code">/&gt;</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero" data-hover="link">Home</a></li>
+            <li><a href="#about" data-hover="link">About</a></li>
+            <li><a href="#projects" data-hover="link">Projects</a></li>
+            <li><a href="#contact" data-hover="link">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
+        <div class="mobile-nav-content">
+            <ul class="mobile-nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-nav-social">
+                <a href="https://github.com/dr-ankurcodes" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.youtube.com/@dr.ankurcodes" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://chat.whatsapp.com/B5Qxor6eG1j4SXjv3bBWOG" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://discord.com/users/dr.ankurcodes" target="_blank" rel="noopener">Discord</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="hero" class="hero-section">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content reveal">
+                <span class="supertitle">Full Stack Developer</span>
+                <h1>Building Digital Solutions.<br>Shipping Clean Code.</h1>
+                <p class="hero-sub">
+                    I'm Dr. Ankur Sharma — Full-Stack Developer &amp;<br> Medical Professional.<br>
+                    Founder of <strong>Dr. Ankur Codes</strong> — making tech education free, interactive, and fun for everyone.
+                </p>
+                <div class="cta-group">
+                    <div class="top-row">
+                        <a href="#projects" class="btn btn-primary" data-hover="link">View Projects</a>
+                        <a href="#contact" class="btn btn-primary" data-hover="link">Get in Touch</a>
+                    </div>
+                    <a href="https://chat.whatsapp.com/B5Qxor6eG1j4SXjv3bBWOG" 
+                    target="_blank" rel="noopener" 
+                    class="btn btn-secondary community-cta" 
+                    data-hover="link">Join Free Community</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="about-section">
+            <div class="section-header reveal">
+                <h2>About Me</h2>
+                <p>Developer by passion, Doctor by profession — bridging technology and healthcare.</p>
+            </div>
+
+            <div id="duality-wrapper" class="mode-developer reveal-scale" data-hover="code">
+                <div class="interface-container">
+                    <div class="toggle-track">
+                        <button id="mode-toggle" class="toggle-btn" aria-label="Switch between Developer and Doctor mode">
+                            <div class="toggle-knob">
+                                <span class="icon-developer">&lt;/&gt;</span>
+                                <span class="icon-doctor">+</span>
+                            </div>
+                        </button>
+                        <div class="toggle-labels">
+                            <span class="label-developer active">DEVELOPER</span>
+                            <span class="label-doctor">DOCTOR</span>
+                        </div>
+                    </div>
+
+                    <div class="content-display">
+                        <div class="visual-header">
+                            <div id="terminal-prompt" class="prompt-text">
+                                <span class="user">guest</span>@<span class="host">ankur-dev</span>:<span class="path">~/about</span>$
+                            </div>
+                        </div>
+
+                        <h1 id="main-title"></h1>
+                        
+                        <div class="meta-tags" id="meta-tags"></div>
+
+                        <p id="main-desc"></p>
+
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-value" id="stat-1-val"></span>
+                                <span class="stat-label" id="stat-1-lbl"></span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="stat-2-val"></span>
+                                <span class="stat-label" id="stat-2-lbl"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="projects-section">
+            <div class="section-header reveal">
+                <h2>Projects</h2>
+                <div class="system-status" id="github-status">SYSTEM: INITIALIZING | CONNECTING TO GITHUB...</div>
+            </div>
+
+            <div class="projects-container">
+                <div class="projects-grid" id="projectsGrid">
+                    <div class="loading-state" id="loading-state">
+                        <div class="loader-ring"></div>
+                        <p class="loader-text">Fetching repositories...</p>
+                    </div>
+                </div>
+
+                <div class="error-state" id="error-state" style="display: none;">
+                    <div class="error-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3>Connection Failed</h3>
+                    <p id="error-message">Unable to fetch GitHub data. Please try again later.</p>
+                    <button class="btn btn-secondary" onclick="fetchGitHubRepos()">Retry Connection</button>
+                </div>
+
+                <div class="empty-state" id="empty-state" style="display: none;">
+                    <div class="empty-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>No Public Repositories</h3>
+                    <p>No public projects found in the GitHub profile.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-section">
+            <div class="contact-wrapper">
+                <div class="contact-text reveal-left">
+                    <h2>Get in Touch</h2>
+                    <p>
+                        I'm always open to discussing new projects, creative ideas, 
+                        or opportunities to be part of your vision. Feel free to reach out.
+                    </p>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <strong>Email:</strong>
+                            <a href="mailto:dr.ankurcodes@gmail.com" data-hover="link">dr.ankurcodes@gmail.com</a>
+                        </div>
+                        <div class="info-item">
+                            <strong>Availability:</strong>
+                            <span>Open for freelance projects</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>YouTube:</strong>
+                            <a href="https://www.youtube.com/@dr.ankurcodes" target="_blank" rel="noopener" data-hover="link">@dr.ankurcodes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Added novalidate to disable native bubbles -->
+                <form class="contact-form reveal-right" id="contact-form" action="https://formsubmit.co/dr.ankurcodes@gmail.com" method="POST" novalidate>
+                    <input type="hidden" name="_subject" value="New Contact from Portfolio">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="_next" value="">
+                    
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" data-hover="code">
+                        <span class="form-error" id="name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" data-hover="code">
+                        <span class="form-error" id="email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <!-- Custom Dropdown Implementation -->
+                        <div class="custom-select-wrapper" id="subject-wrapper" data-hover="code">
+                            <div class="custom-select-trigger placeholder">
+                                <span class="trigger-text">Choose a subject</span>
+                                <div class="custom-arrow"></div>
+                            </div>
+                            <div class="custom-options">
+                                <!-- Added empty value placeholder option -->
+                                <div class="custom-option" data-value="" style="display:none;"></div>
+                                <div class="custom-option" data-value="Web Development">Web Development</div>
+                                <div class="custom-option" data-value="App Development">App Development</div>
+                                <div class="custom-option" data-value="Technical Consulting">Technical Consulting</div>
+                                <div class="custom-option" data-value="Collaboration">Collaboration</div>
+                                <div class="custom-option" data-value="Other">Other</div>
+                            </div>
+                            <!-- Hidden input to store value for form submission -->
+                            <input type="hidden" name="subject" id="subject-value">
+                        </div>
+                        <span class="form-error" id="subject-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." data-hover="code"></textarea>
+                        <span class="form-error" id="message-error"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-hover="link">Send Message</button>
+                </form>
+                <div class="form-success" id="form-success">
+                    <h3>Message Sent!</h3>
+                    <p>Thank you for reaching out. I'll get back to you soon.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2024-2025 Dr. Ankur Sharma. All rights reserved.</p>
+            <p class="footer-note">
+                <small>Built with passion for clean code and great user experiences.</small>
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/dr-ankurcodes" target="_blank" rel="noopener" data-hover="link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://www.youtube.com/@dr.ankurcodes" target="_blank" rel="noopener" data-hover="link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    YouTube
+                </a>
+                <a href="https://chat.whatsapp.com/B5Qxor6eG1j4SXjv3bBWOG" target="_blank" rel="noopener" data-hover="link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.377l-.361-.214-3.75.977.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.884 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+                <a href="https://discord.com/users/dr.ankurcodes" target="_blank" rel="noopener" data-hover="link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7913 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5599.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5096 4.0413 2.4228 5.9929 3.0293a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3738-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1222.0993.248.1995.3738.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5213 6.0023-3.0293a.077.077 0 00.0313-.0561c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.338c-1.1827 0-2.1567-1.0853-2.1567-2.419 0-1.3338.955-2.4189 2.157-2.4189 1.2108 0 2.1753 1.0952 2.1567 2.4189 0 1.3337-.955 2.419-2.157 2.419zm7.9748 0c-1.1826 0-2.1566-1.0853-2.1566-2.419 0-1.3338.955-2.4189 2.1566-2.4189 1.2108 0 2.1753 1.0952 2.1567 2.4189 0 1.3337-.9459 2.419-2.1567 2.419z"/>
+                    </svg>
+                    Discord
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. HERO CANVAS ANIMATION (Optimized) ---
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+        // PERFORMANCE: Reduce particles on mobile
+        let particleCount = window.innerWidth < 600 ? 80 : 180; 
+        const helixRadius = 150;
+        const helixHeight = 1000;
+        let rotation = 0;
+        let rotationSpeed = 0.005;
+        let targetRotationSpeed = 0.005;
+
+        const colorStrandA = '#00f3ff';
+        const colorStrandB = '#00ff9d';
+        const colorLink = 'rgba(0, 243, 255, 0.15)';
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            // Re-adjust particle count on resize
+            const newCount = width < 600 ? 80 : 180;
+            if (newCount !== particleCount) {
+                particleCount = newCount;
+                initParticles();
+            }
+        }
+
+        class Particle {
+            constructor(index) {
+                this.index = index;
+                this.y = (index / particleCount) * helixHeight - (helixHeight / 2);
+                this.char = Math.random() > 0.5 ? '1' : '0';
+                this.glitchOffset = 0;
+                this.glitchTimer = Math.random() * 100;
+            }
+
+            update(rot) {
+                this.y += 1.5;
+                if (this.y > helixHeight / 2) this.y = -helixHeight / 2;
+                this.glitchTimer--;
+                if (this.glitchTimer < 0) {
+                    this.glitchOffset = (Math.random() - 0.5) * 10;
+                    this.char = Math.random() > 0.5 ? '1' : '0';
+                    this.glitchTimer = 50 + Math.random() * 100;
+                } else {
+                    this.glitchOffset *= 0.9;
+                }
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle(i));
+            }
+        }
+
+        function animateHero() {
+            ctx.clearRect(0, 0, width, height);
+            rotationSpeed += (targetRotationSpeed - rotationSpeed) * 0.05;
+            rotation += rotationSpeed;
+
+            const time = Date.now() * 0.002;
+            const pulse = Math.sin(time * 3) * 10;
+            const currentRadius = helixRadius + pulse;
+
+            let renderList = [];
+
+            particles.forEach((p) => {
+                p.update(rotation);
+                const angle = (p.index / particleCount) * Math.PI * 4 + rotation;
+
+                const ax = Math.cos(angle) * currentRadius;
+                const az = Math.sin(angle) * currentRadius;
+                const bx = Math.cos(angle + Math.PI) * currentRadius;
+                const bz = Math.sin(angle + Math.PI) * currentRadius;
+
+                renderList.push({ type: 'strand', x: ax, y: p.y, z: az, color: colorStrandA, char: p.char, glitch: p.glitchOffset });
+                renderList.push({ type: 'strand', x: bx, y: p.y, z: bz, color: colorStrandB, char: p.char, glitch: p.glitchOffset });
+                renderList.push({ type: 'link', x1: ax, y1: p.y, z1: az, x2: bx, y2: p.y, z2: bz });
+            });
+
+            renderList.sort((a, b) => {
+                const zA = a.z1 !== undefined ? a.z1 : a.z;
+                const zB = b.z1 !== undefined ? b.z1 : b.z;
+                return zB - zA;
+            });
+
+            const cx = width / 2;
+            const cy = height / 2;
+            const fov = 300;
+
+            renderList.forEach(item => {
+                if (item.type === 'link') {
+                    const scale1 = fov / (fov + item.z1);
+                    const scale2 = fov / (fov + item.z2);
+                    const x1d = (item.x1 * scale1) + cx;
+                    const y1d = (item.y1 * scale1) + cy;
+                    const x2d = (item.x2 * scale2) + cx;
+                    const y2d = (item.y2 * scale2) + cy;
+                    const alpha = ((item.z1 + 200) / 400);
+
+                    ctx.beginPath();
+                    ctx.moveTo(x1d, y1d);
+                    ctx.lineTo(x2d, y2d);
+                    ctx.strokeStyle = colorLink;
+                    ctx.lineWidth = 1 * scale1;
+                    ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
+                    ctx.stroke();
+                    ctx.globalAlpha = 1;
+                } else if (item.type === 'strand') {
+                    const scale = fov / (fov + item.z);
+                    const x2d = (item.x * scale) + cx;
+                    const y2d = (item.y * scale) + cy;
+                    const alpha = (item.z + 200) / 400;
+
+                    ctx.fillStyle = item.color;
+                    ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
+                    ctx.font = `bold ${14 * scale}px "Courier New"`;
+                    ctx.fillText(item.char, x2d + item.glitch, y2d);
+                    ctx.globalAlpha = 1;
+                }
+            });
+
+            requestAnimationFrame(animateHero);
+        }
+
+        // --- 2. PARALLAX BACKGROUND EFFECT ---
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX - window.innerWidth / 2) / 50;
+            const y = (e.clientY - window.innerHeight / 2) / 50;
+            document.body.style.setProperty('--mouse-x', `${-x}px`);
+            document.body.style.setProperty('--mouse-y', `${-y}px`);
+        });
+
+        // --- 3. CUSTOM CURSOR LOGIC (Enhanced Physics) ---
+        const cursorDot = document.querySelector('[data-cursor-dot]');
+        const cursorOutline = document.querySelector('[data-cursor-outline]');
+        const body = document.body;
+        
+        // Track mouse for direct movement
+        let mouseX = 0;
+        let mouseY = 0;
+        // Track cursor outline position for smooth delay
+        let cursorX = 0;
+        let cursorY = 0;
+
+        window.addEventListener('mousemove', function (e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+        });
+
+        // Smooth animation loop for cursor outline
+        function animateCursor() {
+            // Linear interpolation for smoothness
+            const speed = 0.15;
+            cursorX += (mouseX - cursorX) * speed;
+            cursorY += (mouseY - cursorY) * speed;
+
+            cursorOutline.style.left = `${cursorX}px`;
+            cursorOutline.style.top = `${cursorY}px`;
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        const interactiveElements = document.querySelectorAll('[data-hover]');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                const type = el.getAttribute('data-hover');
+                body.classList.add(`is-hovering-${type}`);
+            });
+            el.addEventListener('mouseleave', () => {
+                const type = el.getAttribute('data-hover');
+                body.classList.remove(`is-hovering-${type}`);
+            });
+        });
+
+        // --- 4. SCROLL REVEAL LOGIC ---
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // --- 5. NAVBAR SCROLL EFFECT ---
+        const mainNav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                mainNav.classList.add('scrolled');
+            } else {
+                mainNav.classList.remove('scrolled');
+            }
+        });
+
+        // --- 6. MOBILE NAVIGATION LOGIC ---
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+
+        function toggleMobileMenu() {
+            const isOpen = mobileMenuToggle.classList.toggle('active');
+            mobileNavOverlay.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', isOpen);
+            mobileNavOverlay.setAttribute('aria-hidden', !isOpen);
+            body.classList.toggle('menu-open', isOpen);
+        }
+
+        function closeMobileMenu() {
+            mobileMenuToggle.classList.remove('active');
+            mobileNavOverlay.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileNavOverlay.setAttribute('aria-hidden', 'true');
+            body.classList.remove('menu-open');
+        }
+
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        mobileNavLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNavOverlay.classList.contains('active')) closeMobileMenu();
+        });
+        mobileNavOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileNavOverlay) closeMobileMenu();
+        });
+
+        // --- 7. SMOOTH SCROLL OFFSET FOR FIXED NAV ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    const navHeight = document.querySelector('.main-nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // --- 8. DEVELOPER VS DOCTOR TOGGLE LOGIC ---
+        const wrapper = document.getElementById('duality-wrapper');
+        const toggleBtn = document.getElementById('mode-toggle');
+        const labelDeveloper = document.querySelector('.label-developer');
+        const labelDoctor = document.querySelector('.label-doctor');
+        const title = document.getElementById('main-title');
+        const desc = document.getElementById('main-desc');
+        const tagsContainer = document.getElementById('meta-tags');
+        const stat1Val = document.getElementById('stat-1-val');
+        const stat1Lbl = document.getElementById('stat-1-lbl');
+        const stat2Val = document.getElementById('stat-2-val');
+        const stat2Lbl = document.getElementById('stat-2-lbl');
+        const promptText = document.getElementById('terminal-prompt');
+
+        let isDoctor = false;
+        let typeWriterTimeout;
+
+        const contentData = {
+            developer: {
+                title: "Dr. Ankur Sharma",
+                prompt: '<span class="user">guest</span>@<span class="host">ankur-dev</span>:<span class="path">~/about</span>$',
+                desc: "Full-stack developer and founder of Dr. Ankur Codes — a free, next-gen coding community, building modern apps and free coding education for everyone.",
+                tags: ["Full Stack", "React/Node", "Python", "DrAnkurCodes"],
+                stats: [{ val: "MERN", lbl: "Stack" }, { val: "Web", lbl: "Developer" }]
+            },
+            doctor: {
+                title: "Dr. Ankur Sharma",
+                prompt: '<span class="user">visitor</span>@<span class="host">ankur-med</span>:<span class="path">~/profile</span>$',
+                desc: "Medical professional with expertise in clinical practice and healthcare. Dedicated to patient care, medical education, and bridging the gap between medicine and technology.",
+                tags: ["Doctor", "Educator", "Writer"],
+                stats: [{ val: "Medical", lbl: "Professional" }, { val: "Clinical", lbl: "Practice" }]
+            }
+        };
+
+        toggleBtn.addEventListener('click', () => {
+            isDoctor = !isDoctor;
+            if (isDoctor) {
+                wrapper.classList.remove('mode-developer');
+                wrapper.classList.add('mode-doctor');
+                labelDeveloper.classList.remove('active');
+                labelDoctor.classList.add('active');
+                updateToggleContent(contentData.doctor);
+            } else {
+                wrapper.classList.remove('mode-doctor');
+                wrapper.classList.add('mode-developer');
+                labelDoctor.classList.remove('active');
+                labelDeveloper.classList.add('active');
+                updateToggleContent(contentData.developer);
+            }
+        });
+
+        function updateToggleContent(data) {
+            title.style.opacity = 0;
+            setTimeout(() => { title.textContent = data.title; title.style.opacity = 1; }, 200);
+
+            promptText.style.opacity = 0;
+            setTimeout(() => { promptText.innerHTML = data.prompt; promptText.style.opacity = 1; }, 200);
+
+            tagsContainer.style.opacity = 0;
+            setTimeout(() => {
+                tagsContainer.innerHTML = '';
+                data.tags.forEach(tag => {
+                    const span = document.createElement('span');
+                    span.className = 'tag';
+                    span.textContent = tag;
+                    tagsContainer.appendChild(span);
+                });
+                tagsContainer.style.opacity = 1;
+            }, 200);
+
+            [stat1Val, stat1Lbl, stat2Val, stat2Lbl].forEach(el => el.style.opacity = 0);
+            setTimeout(() => {
+                stat1Val.textContent = data.stats[0].val;
+                stat1Lbl.textContent = data.stats[0].lbl;
+                stat2Val.textContent = data.stats[1].val;
+                stat2Lbl.textContent = data.stats[1].lbl;
+                [stat1Val, stat1Lbl, stat2Val, stat2Lbl].forEach(el => el.style.opacity = 1);
+            }, 300);
+
+            desc.textContent = '';
+            clearTimeout(typeWriterTimeout);
+            let i = 0;
+            const speed = isDoctor ? 15 : 10;
+            function typeWriter() {
+                if (i < data.desc.length) {
+                    desc.textContent += data.desc.charAt(i);
+                    i++;
+                    typeWriterTimeout = setTimeout(typeWriter, speed);
+                }
+            }
+            setTimeout(typeWriter, 300);
+        }
+
+        // --- 9. GITHUB API INTEGRATION ---
+        const GITHUB_USERNAME = 'dr-ankurcodes';
+        const projectsGrid = document.getElementById('projectsGrid');
+        const loadingState = document.getElementById('loading-state');
+        const errorState = document.getElementById('error-state');
+        const emptyState = document.getElementById('empty-state');
+        const statusEl = document.getElementById('github-status');
+
+        const languageColors = {
+            'JavaScript': '#f1e05a', 'TypeScript': '#3178c6', 'Python': '#3572A5',
+            'HTML': '#e34c26', 'CSS': '#563d7c', 'Vue': '#41b883', 'Java': '#b07219',
+            'C': '#555555', 'C++': '#f34b7d', 'C#': '#178600', 'Go': '#00ADD8',
+            'Rust': '#dea584', 'PHP': '#4F5D95', 'Ruby': '#701516', 'Swift': '#F05138',
+            'Kotlin': '#A97BFF', 'Dart': '#00B4AB', 'Shell': '#89e051', 'SCSS': '#c6538c',
+            'Dockerfile': '#384d54', 'Jupyter Notebook': '#DA5B0B', 'Markdown': '#083fa1'
+        };
+
+        function getLanguageColor(language) {
+            return languageColors[language] || 'var(--neon-cyan)';
+        }
+
+        function formatNumber(num) {
+            return num >= 1000 ? (num / 1000).toFixed(1) + 'k' : num.toString();
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffDays = Math.ceil(Math.abs(now - date) / (1000 * 60 * 60 * 24));
+            if (diffDays < 7) return `${diffDays} days ago`;
+            if (diffDays < 30) return `${Math.floor(diffDays / 7)} week${Math.floor(diffDays / 7) > 1 ? 's' : ''} ago`;
+            if (diffDays < 365) return `${Math.floor(diffDays / 30)} month${Math.floor(diffDays / 30) > 1 ? 's' : ''} ago`;
+            return `${Math.floor(diffDays / 365)} year${Math.floor(diffDays / 365) > 1 ? 's' : ''} ago`;
+        }
+
+        function createProjectCard(repo, index) {
+            const language = repo.language || 'Various';
+            const languageColor = getLanguageColor(repo.language);
+            const updatedAt = formatDate(repo.updated_at);
+
+            let statusClass = 'active';
+            let statusText = 'ACTIVE';
+            const daysSinceUpdate = (Date.now() - new Date(repo.updated_at)) / (1000 * 60 * 60 * 24);
+            if (daysSinceUpdate < 30) { statusClass = 'active'; statusText = 'ACTIVE'; }
+            else if (daysSinceUpdate < 180) { statusClass = 'development'; statusText = 'MAINTAINED'; }
+            else { statusClass = 'archived'; statusText = 'ARCHIVED'; }
+
+            const description = repo.description ? (repo.description.length > 100 ? repo.description.substring(0, 97) + '...' : repo.description) : 'No description available';
+            const topics = repo.topics && repo.topics.length > 0 ? repo.topics.slice(0, 4).map(t => `<span>${t}</span>`).join('') : `<span>${language}</span>`;
+            const animClass = index % 3 === 0 ? 'reveal-left' : (index % 3 === 2 ? 'reveal-right' : '');
+
+            const maxVal = Math.max(repo.stargazers_count, repo.forks_count, repo.watchers_count, 1);
+            const heights = [Math.max(20, (repo.stargazers_count / maxVal) * 100), Math.max(20, (repo.forks_count / maxVal) * 100), Math.max(20, (repo.watchers_count / maxVal) * 100)];
+
+            // NOTE: Added .details-inner wrapper for smooth Grid animation
+            return `
+                <div class="project-card ${animClass}" data-hover="code">
+                    <div class="project-preview">
+                        <div class="project-tag">${repo.visibility || 'public'}</div>
+                        <div class="project-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </div>
+                        <h3>${repo.name}</h3>
+                        <p>${description}</p>
+                        <div class="repo-stats">
+                            <span class="repo-stat">
+                                <svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l3.875 7.875a.75.75 0 01-.418 1.073l-3.875.875a.75.75 0 01-.56 0l-3.875-.875a.75.75 0 01-.418-1.073L7.327.668A.75.75 0 018 .25z"/></svg>
+                                ${formatNumber(repo.stargazers_count)}
+                            </span>
+                            <span class="repo-stat">
+                                <svg viewBox="0 0 16 16"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-.878a2.25 2.25 0 011.5-2.118 2.25 2.25 0 00-1.5-2.118V1.5A.75.75 0 009.75.75h-4.5A.75.75 0 004.5 1.5v.878a2.25 2.25 0 01-1.5 2.118 2.25 2.25 0 001.5 2.118z"/></svg>
+                                ${formatNumber(repo.forks_count)}
+                            </span>
+                        </div>
+                        ${repo.fork ? '<span class="badge-fork">Fork</span>' : ''}
+                    </div>
+                    <div class="project-details">
+                        <div class="details-inner">
+                            <div class="project-header">
+                                <span>${repo.full_name}</span>
+                                <span class="status-badge ${statusClass}">${statusText}</span>
+                            </div>
+                            <div class="chart-body">
+                                <div class="data-row">
+                                    <span class="label">LANGUAGE:</span>
+                                    <span class="value" style="display: flex; align-items: center;">
+                                        <span class="repo-language-dot" style="background-color: ${languageColor};"></span>
+                                        ${language}
+                                    </span>
+                                </div>
+                                <div class="data-row">
+                                    <span class="label">DESCRIPTION:</span>
+                                    <span class="value">${description}</span>
+                                </div>
+                                <div class="data-row">
+                                    <span class="label">TECH STACK:</span>
+                                    <div class="tech-stack">${topics}</div>
+                                </div>
+                                <div class="data-row">
+                                    <span class="label">ACTIVITY:</span>
+                                    <div class="activity-graph">
+                                        ${heights.map(h => `<div class="bar" style="height: ${h}%"></div>`).join('')}
+                                    </div>
+                                </div>
+                                <div class="data-row">
+                                    <span class="label">LAST UPDATED:</span>
+                                    <span class="value repo-date">${updatedAt}</span>
+                                </div>
+                            </div>
+                            <div class="project-footer">
+                                <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="view-btn">VIEW REPOSITORY</a>
+                                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" rel="noopener noreferrer" class="live-demo-btn">LIVE DEMO →</a>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+        }
+
+        async function fetchGitHubRepos() {
+            loadingState.style.display = 'flex';
+            errorState.style.display = 'none';
+            emptyState.style.display = 'none';
+            statusEl.textContent = 'SYSTEM: CONNECTING | FETCHING REPOSITORIES...';
+
+            try {
+                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&direction=desc&per_page=9`, {
+                    headers: { 'Accept': 'application/vnd.github.v3+json' }
+                });
+
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+                const repos = await response.json();
+
+                loadingState.style.display = 'none';
+
+                if (!repos || repos.length === 0) {
+                    emptyState.style.display = 'flex';
+                    statusEl.textContent = 'SYSTEM: ONLINE | NO REPOSITORIES FOUND';
+                    return;
+                }
+
+                statusEl.textContent = `SYSTEM: ONLINE | ${repos.length} REPOSITORIES SYNCED`;
+                statusEl.style.color = 'var(--neon-green)';
+
+                projectsGrid.innerHTML = '';
+                const sortedRepos = repos.sort((a, b) => b.stargazers_count - a.stargazers_count || new Date(b.updated_at) - new Date(a.updated_at));
+
+                sortedRepos.forEach((repo, index) => {
+                    projectsGrid.insertAdjacentHTML('beforeend', createProjectCard(repo, index));
+                });
+
+                const newRevealElements = projectsGrid.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+                newRevealElements.forEach(el => revealObserver.observe(el));
+
+                const newInteractiveElements = projectsGrid.querySelectorAll('[data-hover]');
+                newInteractiveElements.forEach(el => {
+                    el.addEventListener('mouseenter', () => body.classList.add(`is-hovering-${el.getAttribute('data-hover')}`));
+                    el.addEventListener('mouseleave', () => body.classList.remove(`is-hovering-${el.getAttribute('data-hover')}`));
+                });
+
+                // Smooth Touch Handlers
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.addEventListener('click', function(e) {
+                        e.stopPropagation(); 
+
+                        // Check if device is touch-only
+                        if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+                            // Don't toggle if clicking a link inside the card
+                            if (e.target.closest('a')) return;
+
+                            // Toggle the clicked card
+                            const isOpen = this.classList.contains('is-open');
+                            
+                            // Close all other cards first
+                            document.querySelectorAll('.project-card.is-open').forEach(openCard => {
+                                if (openCard !== this) {
+                                    openCard.classList.remove('is-open');
+                                }
+                            });
+
+                            // Toggle current
+                            if (isOpen) {
+                                this.classList.remove('is-open');
+                            } else {
+                                this.classList.add('is-open');
+                                
+                                // Smooth scroll to the opened card if it's off-screen
+                                setTimeout(() => {
+                                    this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                }, 300);
+                            }
+                        }
+                    });
+                });
+
+            } catch (error) {
+                console.error('GitHub API Error:', error);
+                loadingState.style.display = 'none';
+                errorState.style.display = 'flex';
+                document.getElementById('error-message').textContent = `Failed to fetch repositories: ${error.message}`;
+                statusEl.textContent = 'SYSTEM: ERROR | CONNECTION FAILED';
+                statusEl.style.color = 'var(--neon-red)';
+            }
+        }
+
+        // --- 10. CONTACT FORM HANDLING & VALIDATION ---
+
+        const contactForm = document.getElementById('contact-form');
+        const formSuccess = document.getElementById('form-success');
+        const customSelectWrapper = document.getElementById('subject-wrapper');
+        const customSelectTrigger = customSelectWrapper.querySelector('.custom-select-trigger');
+        const customOptions = customSelectWrapper.querySelectorAll('.custom-option');
+        const hiddenSubjectInput = document.getElementById('subject-value');
+        const triggerText = customSelectWrapper.querySelector('.trigger-text');
+
+        // 1. Custom Dropdown Logic
+        customSelectTrigger.addEventListener('click', (e) => {
+            customSelectWrapper.classList.toggle('open');
+            e.stopPropagation(); // Prevent immediate closing
+        });
+
+        customOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const value = option.getAttribute('data-value');
+                hiddenSubjectInput.value = value; // Update hidden input
+                
+                // Update trigger text
+                triggerText.textContent = option.textContent;
+                customSelectTrigger.classList.remove('placeholder'); // Remove placeholder style
+                
+                // Highlight selected
+                customOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                
+                // Close dropdown
+                customSelectWrapper.classList.remove('open');
+                
+                // Clear error if valid selection
+                if(value) clearError('subject');
+            });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (!customSelectWrapper.contains(e.target)) {
+                customSelectWrapper.classList.remove('open');
+            }
+        });
+
+        // 2. Manual Validation Logic
+        function showError(inputId, message) {
+            const errorEl = document.getElementById(inputId + '-error');
+            const formGroup = document.getElementById(inputId) ? document.getElementById(inputId).parentElement : document.getElementById('subject-wrapper');
+            
+            if(inputId === 'subject') {
+                document.getElementById('subject-wrapper').classList.add('input-error');
+            } else {
+                formGroup.classList.add('input-error');
+            }
+            
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+        }
+
+        function clearError(inputId) {
+            const errorEl = document.getElementById(inputId + '-error');
+            const formGroup = document.getElementById(inputId) ? document.getElementById(inputId).parentElement : document.getElementById('subject-wrapper');
+            
+            if(inputId === 'subject') {
+                document.getElementById('subject-wrapper').classList.remove('input-error');
+            } else {
+                if(formGroup) formGroup.classList.remove('input-error');
+            }
+            
+            if(errorEl) errorEl.style.display = 'none';
+        }
+
+        // Clear errors on input
+        document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
+            input.addEventListener('input', () => clearError(input.id));
+        });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        contactForm.addEventListener('submit', function(e) {
+            // Prevent default submission initially
+            e.preventDefault();
+
+            let isValid = true;
+
+            // Validate Name
+            const nameVal = document.getElementById('name').value.trim();
+            if(nameVal === '') { 
+                showError('name', 'Please enter your name'); 
+                isValid = false; 
+            } else { 
+                clearError('name'); 
+            }
+
+            // Validate Email
+            const emailVal = document.getElementById('email').value.trim();
+            if(emailVal === '') { 
+                showError('email', 'Please enter your email'); 
+                isValid = false; 
+            } else if(!validateEmail(emailVal)) { 
+                showError('email', 'Please enter a valid email address'); 
+                isValid = false; 
+            } else { 
+                clearError('email'); 
+            }
+
+            // Validate Subject (using hidden input)
+            const subjectVal = hiddenSubjectInput.value;
+            if(subjectVal === '') { 
+                showError('subject', 'Please choose a subject'); 
+                isValid = false; 
+            } else { 
+                clearError('subject'); 
+            }
+
+            // Validate Message
+            const msgVal = document.getElementById('message').value.trim();
+            if(msgVal === '') { 
+                showError('message', 'Please enter a message'); 
+                isValid = false; 
+            } else { 
+                clearError('message'); 
+            }
+
+            // If valid, proceed with existing mailto logic
+            if(isValid) {
+                const mailtoLink = `mailto:dr.ankurcodes@gmail.com?subject=${encodeURIComponent('[Portfolio] ' + subjectVal)}&body=${encodeURIComponent(`Name: ${nameVal}\nEmail: ${emailVal}\n\n${msgVal}`)}`;
+                
+                contactForm.style.display = 'none';
+                formSuccess.classList.add('show');
+                
+                window.location.href = mailtoLink;
+            }
+        });
+
+        // --- INITIALIZATION ---
+        window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', (e) => {
+            const center = width / 2;
+            targetRotationSpeed = 0.005 + ((e.clientX - center) / center) * 0.02;
+        });
+
+        resize();
+        initParticles();
+        animateHero();
+        updateToggleContent(contentData.developer);
+        fetchGitHubRepos();
+    </script>
+</body>
+</html>
